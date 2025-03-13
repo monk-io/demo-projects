@@ -1,0 +1,4 @@
+{
+    "databaseHost": "db.example.com",
+    "databasePort": 5432
+}

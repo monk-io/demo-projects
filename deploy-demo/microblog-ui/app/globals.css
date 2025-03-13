@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 100% 96%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 329 100% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 187 100% 42%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.neo-memphis-pattern {
+  background-image: radial-gradient(circle at 100% 100%, var(--secondary) 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 0% 100%, var(--accent) 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 100% 0%, var(--primary) 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 0% 0%, var(--secondary) 0.5rem, transparent 0.5rem);
+  background-size: 5rem 5rem;
+  background-position: 0 0, 0 2.5rem, 2.5rem 0, 2.5rem 2.5rem;
+}
+

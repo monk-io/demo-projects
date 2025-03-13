@@ -1,0 +1,299 @@
+{
+    "projects": [
+        {
+            "name": "clojure-service",
+            "baseDir": "fixtures/projects/clojure-service",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "clojure-service",
+                    "relativeDirectory": ".",
+                    "entryPoint": "-main",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "desktop-app",
+            "baseDir": "fixtures/projects/desktop-app",
+            "requiredServices": [],
+            "isDeployable": false,
+            "services": [
+                {
+                    "name": "desktop-app",
+                    "relativeDirectory": ".",
+                    "entryPoint": "main.js",
+                    "deployable": false
+                }
+            ]
+        },
+        {
+            "name": "elixir_app",
+            "baseDir": "fixtures/projects/elixir_app",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "elixir_app",
+                    "relativeDirectory": ".",
+                    "entryPoint": "application.ex",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "go-microservice",
+            "baseDir": "fixtures/projects/go-microservice",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "go-microservice",
+                    "relativeDirectory": ".",
+                    "entryPoint": "main.go",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "monorepo-backend-frontend",
+            "baseDir": "fixtures/projects/monorepo-backend-frontend",
+            "requiredServices": [],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "backend",
+                    "relativeDirectory": "backend",
+                    "entryPoint": "server.js",
+                    "deployable": true
+                },
+                {
+                    "name": "frontend",
+                    "relativeDirectory": "frontend",
+                    "entryPoint": "index.html",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "monorepo-mixed-services",
+            "baseDir": "fixtures/projects/monorepo-mixed-services",
+            "requiredServices": [
+                "redis",
+                "mongodb",
+                "mysql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "go-service",
+                    "relativeDirectory": "services/go-service",
+                    "entryPoint": "main.go",
+                    "deployable": true
+                },
+                {
+                    "name": "node-service",
+                    "relativeDirectory": "services/node-service",
+                    "entryPoint": "server.js",
+                    "deployable": true
+                },
+                {
+                    "name": "ruby-service",
+                    "relativeDirectory": "services/ruby-service",
+                    "entryPoint": "app.rb",
+                    "deployable": true
+                },
+                {
+                    "name": "php-service",
+                    "relativeDirectory": "services/php-service",
+                    "entryPoint": "index.php",
+                    "deployable": true
+                },
+                {
+                    "name": "elixir-service",
+                    "relativeDirectory": "services/elixir-service",
+                    "entryPoint": "application.ex",
+                    "deployable": true
+                },
+                {
+                    "name": "clojure-service",
+                    "relativeDirectory": "services/clojure-service",
+                    "entryPoint": "-main",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "monorepo-multiple-services",
+            "baseDir": "fixtures/projects/monorepo-multiple-services",
+            "requiredServices": [],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "java-service",
+                    "relativeDirectory": "java-service",
+                    "entryPoint": "com.example.JavaService",
+                    "deployable": true
+                },
+                {
+                    "name": "node-service",
+                    "relativeDirectory": "node-service",
+                    "entryPoint": "server.js",
+                    "deployable": true
+                },
+                {
+                    "name": "python-service",
+                    "relativeDirectory": "python-service",
+                    "entryPoint": "app.py",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "non-deployable-library",
+            "baseDir": "fixtures/projects/non-deployable-library",
+            "requiredServices": [],
+            "isDeployable": false,
+            "services": [
+                {
+                    "name": "non-deployable-library",
+                    "relativeDirectory": ".",
+                    "entryPoint": "index.js",
+                    "deployable": false
+                }
+            ]
+        },
+        {
+            "name": "php-website",
+            "baseDir": "fixtures/projects/php-website",
+            "requiredServices": [
+                "mysql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "php-website",
+                    "relativeDirectory": ".",
+                    "entryPoint": "index.php",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "ruby-sinatra",
+            "baseDir": "fixtures/projects/ruby-sinatra",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "ruby-sinatra",
+                    "relativeDirectory": ".",
+                    "entryPoint": "app.rb",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "simple-backend",
+            "baseDir": "fixtures/projects/simple-backend",
+            "requiredServices": [],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "simple-backend",
+                    "relativeDirectory": ".",
+                    "entryPoint": "server.js",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "simple-frontend",
+            "baseDir": "fixtures/projects/simple-frontend",
+            "requiredServices": [],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "simple-frontend",
+                    "relativeDirectory": ".",
+                    "entryPoint": "index.html",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "deploy-demo",
+            "baseDir": "fixtures/projects/deploy-demo",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "auth-service",
+                    "relativeDirectory": "auth-service",
+                    "entryPoint": "main.go",
+                    "deployable": true
+                },
+                {
+                    "name": "backend",
+                    "relativeDirectory": "backend",
+                    "entryPoint": "main.go",
+                    "deployable": true
+                },
+                {
+                    "name": "microblog-ui",
+                    "relativeDirectory": "microblog-ui",
+                    "entryPoint": "index.html",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "something",
+            "baseDir": "fixtures/projects/something",
+            "requiredServices": [],
+            "isDeployable": false,
+            "services": []
+        },
+        {
+            "name": "nextjs-websockets-main",
+            "baseDir": "fixtures/projects/nextjs-websockets-main",
+            "requiredServices": [],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "nextjs-websockets-main",
+                    "relativeDirectory": ".",
+                    "entryPoint": "server.ts",
+                    "deployable": true
+                }
+            ]
+        },
+        {
+            "name": "platform-subscription-main",
+            "baseDir": "fixtures/projects/platform-subscription-main",
+            "requiredServices": [
+                "postgresql"
+            ],
+            "isDeployable": true,
+            "services": [
+                {
+                    "name": "platform-subscription-main",
+                    "relativeDirectory": ".",
+                    "entryPoint": "cmd/main.go",
+                    "deployable": true
+                }
+            ]
+        }
+    ]
+}

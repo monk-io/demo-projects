@@ -1,0 +1,8 @@
+{
+    "name": "php-service",
+    "require": {
+        "predis/predis": "^2.0",
+        "mongodb/mongodb": "^1.11",
+        "ext-pdo": "*"
+    }
+}

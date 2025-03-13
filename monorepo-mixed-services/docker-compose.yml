@@ -1,0 +1,97 @@
+version: "3.8"
+services:
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"
+
+  go-service:
+    build: ./services/go-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8081:8080"
+
+  node-service:
+    build: ./services/node-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8082:3000"
+
+  ruby-service:
+    build: ./services/ruby-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8083:4567"
+
+  php-service:
+    build: ./services/php-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8084:80"
+
+  elixir-service:
+    build: ./services/elixir-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8085:4000"
+
+  clojure-service:
+    build: ./services/clojure-service
+    depends_on:
+      - redis
+      - mongo
+      - mysql
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://mongo:27017
+      - MYSQL_URL=mysql://root:example@mysql:3306/testdb
+    ports:
+      - "8086:3000"

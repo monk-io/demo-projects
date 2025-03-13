@@ -1,0 +1,5 @@
+.clj-kondo
+.DS_Store
+.lsp
+__pycache__
+node_modules
