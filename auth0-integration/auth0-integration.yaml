@@ -1,0 +1,119 @@
+namespace: auth0-integration
+
+auth0-integration-app:
+  defines: auth0/application
+  domain: "monk-demo.us.auth0.com"
+  app-name: "Auth0 Integration App"
+  description: "Auth0 Integration App"
+  app-type: "regular_web"
+  callback-url: <- $app-domain "/callback" concat-all
+  allowed-logout-urls:
+    - <- $app-domain "/logout" concat-all
+  web-origins:
+    - <- $app-domain
+  allowed-origins:
+    - <- $app-domain
+  management-client-id-secret: default-auth0-management-client-id
+  management-client-token-secret: default-auth0-management-client-secret
+  management-api: "https://monk-demo.us.auth0.com"
+  permitted-secrets:
+    default-auth0-management-client-id: true
+    default-auth0-management-client-secret: true
+  variables:
+    app-domain:
+      type: string
+      description: Domain of the application using Auth0.
+      value: <- "https://" connection-domain-name("app") concat-all
+  services:
+    data:
+      protocol: custom
+  connections:
+    app:
+      runnable: auth0-integration/proxy
+      service: nginx
+
+auth0-express-app:
+  defines: runnable
+  metadata:
+    name: auth0-express-app
+    description: "A Node.js Express backend application that uses Auth0 for authentication. It displays user info after login, supports login/logout, and expects configuration via environment variables. Intended to be deployed as a web service."
+  containers:
+    main:
+      image: "auth0-express-app:latest"
+  services:
+    http:
+      description: "HTTP web service for the Express app, handles authentication and user info display."
+      protocol: tcp
+      port: <- $port
+      container: main
+  connections:
+    auth0:
+      runnable: auth0-integration/auth0-integration-app
+      service: data
+    proxy:
+      runnable: auth0-integration/proxy
+      service: nginx
+  depends:
+    wait-for:
+      runnables:
+        - auth0-integration/auth0-integration-app
+  variables:
+    auth0-client-id:
+      type: string
+      env: AUTH0_CLIENT_ID
+      description: Auth0 application client ID used for authentication.
+      value: <- connection-target("auth0") entity-state get-member("client-id")
+    auth0-client-secret:
+      type: string
+      env: AUTH0_CLIENT_SECRET
+      description: Auth0 application client secret used for authentication.
+      value: <- connection-target("auth0") entity-state get-member("client-secret")
+    auth0-domain:
+      type: string
+      env: AUTH0_DOMAIN
+      description: Auth0 domain for authentication requests.
+      value: "monk-demo.us.auth0.com"
+    auth0-callback-url:
+      type: string
+      env: AUTH0_CALLBACK_URL
+      description: Callback URL for Auth0 to redirect after authentication.
+      value: <- `${callback-host}${callback-path}`
+    port:
+      type: int
+      env: PORT
+      description: Port on which the Express app will listen.
+      value: 3000
+    session-secret:
+      type: string
+      env: SESSION_SECRET
+      description: Secret used to sign the session ID cookie.
+      value: change_this_secret
+    callback-host:
+      type: string
+      env: CALLBACK_HOST
+      description: Host for the Auth0 callback URL.
+      value: <- "https://" connection-domain-name("proxy") concat-all
+    callback-path:
+      type: string
+      env: CALLBACK_PATH
+      description: Path for the Auth0 callback URL.
+      value: /callback
+
+proxy:
+  defines: runnable
+  inherits: nginx/node-proxy
+  connections:
+    backend:
+      runnable: auth0-integration/auth0-express-app
+      service: http
+  depends:
+    wait-for:
+      runnables:
+        - auth0-integration/auth0-express-app
+
+stack:
+  defines: group
+  members:
+    - auth0-integration/auth0-integration-app
+    - auth0-integration/auth0-express-app
+    - auth0-integration/proxy
