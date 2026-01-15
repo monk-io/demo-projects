@@ -272,6 +272,11 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.34.6.tgz#f3d03ce2d82723eb089188ea1494a719b09e1561"
   integrity sha512-0PVwmgzZ8+TZ9oGBmdZoQVXflbvuwzN/HRclujpl4N/q3i+y0lqLw8n1bXA8ru3sApDjlmONaNAuYr38y1Kr9w==
 
+"@standard-schema/spec@^1.0.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@standard-schema/spec/-/spec-1.1.0.tgz#a79b55dbaf8604812f52d140b2c9ab41bc150bb8"
+  integrity sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==
+
 "@sveltejs/acorn-typescript@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@sveltejs/acorn-typescript/-/acorn-typescript-1.0.5.tgz#f518101d1b2e12ce80854f1cd850d3b9fb91d710"
@@ -282,16 +287,18 @@
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-3.0.8.tgz#f23ee99a9678dbaec58b79d183bc3defbfe99f1a"
   integrity sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==
 
-"@sveltejs/kit@^2.19.0":
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.19.0.tgz#e231feb47e3c50d329f86221d40495815e66ad6f"
-  integrity sha512-UTx28Ad4sYsLU//gqkEo5aFOPFBRT2uXCmXTsURqhurDCvzkVwXruJgBcHDaMiK6RKKpYRteDUaXYqZyGPgCXQ==
+"@sveltejs/kit@^2.49.5":
+  version "2.49.5"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.49.5.tgz#da173805592e3ebd483bb77d45ef424078f0aaff"
+  integrity sha512-dCYqelr2RVnWUuxc+Dk/dB/SjV/8JBndp1UovCyCZdIQezd8TRwFLNZctYkzgHxRJtaNvseCSRsuuHPeUgIN/A==
   dependencies:
+    "@standard-schema/spec" "^1.0.0"
+    "@sveltejs/acorn-typescript" "^1.0.5"
     "@types/cookie" "^0.6.0"
+    acorn "^8.14.1"
     cookie "^0.6.0"
-    devalue "^5.1.0"
+    devalue "^5.6.2"
     esm-env "^1.2.2"
-    import-meta-resolve "^4.1.0"
     kleur "^4.1.5"
     magic-string "^0.30.5"
     mrmime "^2.0.0"
@@ -333,10 +340,10 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.6.tgz#628effeeae2064a1b4e79f78e81d87b7e5fc7b50"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
 
-acorn@^8.12.1:
-  version "8.14.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.0.tgz#063e2c70cac5fb4f6467f0b11152e04c682795b0"
-  integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
+acorn@^8.12.1, acorn@^8.14.1:
+  version "8.15.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.15.0.tgz#a360898bc415edaac46c8241f6383975b930b816"
+  integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
 aria-query@^5.3.1:
   version "5.3.2"
@@ -419,10 +426,10 @@ define-lazy-prop@^3.0.0:
   resolved "https://registry.yarnpkg.com/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz#dbb19adfb746d7fc6d734a06b72f4a00d021255f"
   integrity sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==
 
-devalue@^5.1.0:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/devalue/-/devalue-5.1.1.tgz#a71887ac0f354652851752654e4bd435a53891ae"
-  integrity sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==
+devalue@^5.6.2:
+  version "5.6.2"
+  resolved "https://registry.yarnpkg.com/devalue/-/devalue-5.6.2.tgz#931e2bb1cc2b299e0f0fb9e4e5be8ebf521a25b8"
+  integrity sha512-nPRkjWzzDQlsejL1WVifk5rvcFi/y1onBRxjaFMjZeR9mFpqu2gmAZ9xUB9/IEanEP/vBtGeGganC/GO1fmufg==
 
 esbuild@^0.25.0:
   version "0.25.0"
@@ -500,11 +507,6 @@ ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
-
-import-meta-resolve@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/import-meta-resolve/-/import-meta-resolve-4.1.0.tgz#f9db8bead9fafa61adb811db77a2bf22c5399706"
-  integrity sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==
 
 inherits@^2.0.3:
   version "2.0.4"
